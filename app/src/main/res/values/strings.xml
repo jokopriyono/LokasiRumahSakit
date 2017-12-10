@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lokasi Rumah Sakit</string>
+    <string name="cari_rumah_sakit">Cari Rumah Sakit Terdekat</string>
+    <string name="googleApiKey">AIzaSyDEVtxtbO_XqSYc4OWv7kB66n07p4EzVno</string>
+</resources>
