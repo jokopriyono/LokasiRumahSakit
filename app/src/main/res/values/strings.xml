@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">Lokasi Rumah Sakit</string>
-    <string name="cari_rumah_sakit">Cari Rumah Sakit Terdekat</string>
+    <string name="app_name">Pencarian Lokasi\nRumah Sakit</string>
+    <string name="cari_rumah_sakit">Cari Rumah Sakit</string>
     <string name="googleApiKey">AIzaSyDEVtxtbO_XqSYc4OWv7kB66n07p4EzVno</string>
+    <string name="daftar_rumah_sakit">Daftar \nRumah sakit</string>
+    <string name="tentang_aplikasi">Tentang \nAplikasi</string>
+    <string name="_2017_stmik_global">2017 STMIK Global</string>
+    <string name="cari">Cari !</string>
+    <string name="jarak_km">Jarak Km :</string>
+    <string name="minus">-</string>
 </resources>

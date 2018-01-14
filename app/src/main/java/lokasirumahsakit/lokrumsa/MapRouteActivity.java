@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
@@ -13,12 +15,14 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -46,11 +50,16 @@ import java.util.List;
 public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
     private MapView mMapView;
     private GoogleMap googleMap;
+    private String no = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_full);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle!=null)
+            no = bundle.getString("no");
 
         //inisialisasi peta di dalam fragment
         mMapView = findViewById(R.id.map);
@@ -81,14 +90,34 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
                 Criteria criteria = new Criteria();
                 Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
 
+                if (no.equals("")){
+                    Toast.makeText(MapRouteActivity.this, "Bundle kosong", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    LocalDB localDB = new LocalDB(getApplicationContext());
+                    SQLiteDatabase db = localDB.getReadableDatabase();
+                    Cursor cursor = db.rawQuery("SELECT * FROM rumah_sakit WHERE no=" + no, null);
+                    cursor.moveToFirst();
+                    if (cursor.getCount()!=0) {
+                        new connectAsyncTask(makeURL(location.getLatitude(), location.getLongitude(),
+                                localDB.getDoubleValue(cursor, "latitude"),
+                                localDB.getDoubleValue(cursor, "longitude"))).execute();
 
-                new connectAsyncTask(makeURL(location.getLatitude(),location.getLongitude(),
-                        -6.2148254, 106.6282637)).execute();
-                LatLng dest = new LatLng(-6.2148254,106.6282637);
+                        LatLng dest = new LatLng(localDB.getDoubleValue(cursor, "latitude"),
+                                localDB.getDoubleValue(cursor, "longitude"));
+
+                        MarkerOptions markdest = new MarkerOptions().position(dest)
+                                .title(localDB.getStringValue(cursor, "nama"))
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+                        googleMap.addMarker(markdest);
+                        cursor.close();
+                    } else {
+                        Toast.makeText(MapRouteActivity.this, "Cursor kosong", Toast.LENGTH_SHORT).show();
+                        cursor.close();
+                        finish();
+                    }
+                }
                 LatLng source = new LatLng(location.getLatitude(),location.getLongitude());
-
-                MarkerOptions markdest = new MarkerOptions().position(dest).title("Contoh Rute");
-                googleMap.addMarker(markdest);
 
                 // camera zoom letak marker nya
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(source).zoom(15).build();
@@ -145,7 +174,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
             JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
             String encodedString = overviewPolylines.getString("points");
             List<LatLng> list = decodePoly(encodedString);
-            Polyline line = googleMap.addPolyline(new PolylineOptions()
+            googleMap.addPolyline(new PolylineOptions()
                     .addAll(list)
                     .width(5)
                     .color(Color.parseColor("#00b5b0"))
@@ -185,8 +214,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
         @Override
         protected String doInBackground(Void... params) {
             JSONParser jParser = new JSONParser();
-            String json = jParser.getJSONFromUrl(url);
-            return json;
+            return jParser.getJSONFromUrl(url);
         }
         @Override
         protected void onPostExecute(String result) {

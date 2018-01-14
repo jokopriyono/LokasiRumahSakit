@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Criteria;
@@ -12,6 +14,9 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,15 +28,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapFullActivity extends AppCompatActivity implements GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class MapFullActivity extends AppCompatActivity {
     private MapView mMapView;
     private GoogleMap googleMap;
+    private List<DataRumahSakit> dataRumahSakit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_full);
-
 
         //inisialisasi peta di dalam fragment
         mMapView = findViewById(R.id.map);
@@ -55,31 +65,42 @@ public class MapFullActivity extends AppCompatActivity implements GoogleMap.OnMa
                 }
                 Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
 
-                LatLng dest = new LatLng(-6.2148254,106.6282637);
-                MarkerOptions markdest = new MarkerOptions().position(dest).title("Rumah Sakit Awal Bros Tangerang");
-                googleMap.addMarker(markdest);
+                LocalDB localDB = new LocalDB(getApplicationContext());
+                SQLiteDatabase db = localDB.getReadableDatabase();
+                Cursor cursor = db.rawQuery("SELECT * FROM rumah_sakit", null);
+                cursor.moveToFirst();
+                if (cursor.getCount()!=0){
+                    dataRumahSakit = localDB.getAllRumahSakit(cursor, location);
+                    Collections.sort(dataRumahSakit, new Comparator<DataRumahSakit>() {
+                        @Override
+                        public int compare(DataRumahSakit dataRumahSakit, DataRumahSakit t1) {
+                            return Double.compare(dataRumahSakit.getJarak(), t1.getJarak());
+                        }
+                    });
 
-                dest = new LatLng(-6.2148208,106.5602341);
-                markdest = new MarkerOptions().position(dest).title("Rumah Sakit Anak dan Bunda Sari Asih");
-                googleMap.addMarker(markdest);
-
-                dest = new LatLng(-6.1716437,106.6066094);
-                markdest = new MarkerOptions().position(dest).title("Rumah Sakit Umum Sari Asih Sangiang");
-                googleMap.addMarker(markdest);
-
-                dest = new LatLng(-6.1842755,106.6453992);
-                markdest = new MarkerOptions().position(dest).title("Rumah Sakit Usada Insani");
-                googleMap.addMarker(markdest);
-
-                dest = new LatLng(-6.25914,106.6493459);
-                markdest = new MarkerOptions().position(dest).title("Rumah Sakit Islam As Shobirin");
-                googleMap.addMarker(markdest);
+                    if (dataRumahSakit.size() <= 5){
+                        for (int a = 0; a< dataRumahSakit.size(); a++){
+                            LatLng dest = new LatLng(dataRumahSakit.get(a).getLatitude(),
+                                    dataRumahSakit.get(a).getLongitude());
+                            MarkerOptions markdest = new MarkerOptions().position(dest).title(dataRumahSakit.get(a).getNama());
+                            googleMap.addMarker(markdest);
+                        }
+                    } else {
+                        for (int a=0; a<=5; a++){
+                            LatLng dest = new LatLng(dataRumahSakit.get(a).getLatitude(),
+                                    dataRumahSakit.get(a).getLongitude());
+                            MarkerOptions markdest = new MarkerOptions().position(dest)
+                                    .title(dataRumahSakit.get(a).getNama())
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+                            googleMap.addMarker(markdest).setTag(dataRumahSakit.get(a).getNo());
+                        }
+                    }
+                }
+                cursor.close();
 
                 // camera zoom letak marker nya
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 googleMap.setMyLocationEnabled(true);
-                googleMap.setOnMarkerClickListener(MapFullActivity.this);
-                googleMap.setOnMapClickListener(MapFullActivity.this);
 
                 if (location != null){
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13));
@@ -91,22 +112,13 @@ public class MapFullActivity extends AppCompatActivity implements GoogleMap.OnMa
                 googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
-                        startActivity(new Intent(MapFullActivity.this, MapRouteActivity.class));
+                        Intent intent = new Intent(MapFullActivity.this, MapRouteActivity.class);
+                        if (marker.getTag()!=null)
+                            intent.putExtra("no", marker.getTag().toString());
+                        startActivity(intent);
                     }
                 });
             }
         });
     }
-
-    @Override
-    public void onMapClick(LatLng latLng) {
-
-    }
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        return false;
-    }
-
-
 }
