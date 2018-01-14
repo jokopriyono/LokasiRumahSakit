@@ -8,4 +8,6 @@
     <string name="cari">Cari !</string>
     <string name="jarak_km">Jarak Km :</string>
     <string name="minus">-</string>
+    <string name="jarak">Jarak</string>
+    <string name="alamat">Alamat</string>
 </resources>

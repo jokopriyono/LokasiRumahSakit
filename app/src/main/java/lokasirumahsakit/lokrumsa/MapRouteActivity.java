@@ -14,7 +14,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -51,15 +53,22 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
     private MapView mMapView;
     private GoogleMap googleMap;
     private String no = "";
+    private Toolbar toolbar;
+    private TextView txtJarak;
+    private TextView txtAlamat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map_full);
+        setContentView(R.layout.activity_map_route);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle!=null)
             no = bundle.getString("no");
+
+        toolbar = findViewById(R.id.toolbar_map);
+        txtJarak = findViewById(R.id.txt_jarak);
+        txtAlamat = findViewById(R.id.txt_alamat);
 
         //inisialisasi peta di dalam fragment
         mMapView = findViewById(R.id.map);
@@ -99,6 +108,11 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
                     Cursor cursor = db.rawQuery("SELECT * FROM rumah_sakit WHERE no=" + no, null);
                     cursor.moveToFirst();
                     if (cursor.getCount()!=0) {
+                        toolbar.setTitle(localDB.getStringValue(cursor, "nama"));
+                        txtAlamat.setText(localDB.getStringValue(cursor, "alamat"));
+                        String jarak = localDB.hitungJarakRS(location, localDB.getDoubleValue(cursor, "latitude"), localDB.getDoubleValue(cursor, "longitude")) + " Km";
+                        txtJarak.setText(jarak);
+
                         new connectAsyncTask(makeURL(location.getLatitude(), location.getLongitude(),
                                 localDB.getDoubleValue(cursor, "latitude"),
                                 localDB.getDoubleValue(cursor, "longitude"))).execute();
