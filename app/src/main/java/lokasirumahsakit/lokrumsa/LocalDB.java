@@ -271,7 +271,7 @@ public class LocalDB extends SQLiteOpenHelper {
 
     }
 
-    String getStringValue(Cursor cursor, String column) {
+    public String getStringValue(Cursor cursor, String column) {
         int count=cursor.getColumnCount();
         for (int counter = 0; counter < count; counter++) {
             if (cursor.getColumnName(counter).equals(column)){
@@ -281,7 +281,7 @@ public class LocalDB extends SQLiteOpenHelper {
         return null;
     }
 
-    Double getDoubleValue(Cursor cursor, String column) {
+    public Double getDoubleValue(Cursor cursor, String column) {
         int count=cursor.getColumnCount();
         for (int counter = 0; counter < count; counter++) {
             if (cursor.getColumnName(counter).equals(column)){
@@ -291,7 +291,7 @@ public class LocalDB extends SQLiteOpenHelper {
         return null;
     }
 
-    List<DataRumahSakit> getAllRumahSakit(Cursor cursor, Location location){
+    public List<DataRumahSakit> getAllRumahSakit(Cursor cursor, Location location){
         List<DataRumahSakit> dataRumahSakits = new ArrayList<>();
         for (int counter = 0; counter < cursor.getCount(); counter++) {
             DataRumahSakit data = new DataRumahSakit(getStringValue(cursor, "no"),
@@ -306,7 +306,7 @@ public class LocalDB extends SQLiteOpenHelper {
         return dataRumahSakits;
     }
 
-    double hitungJarakRS(Location location, double tujuanLat, double tujuanLong) {
+    public double hitungJarakRS(Location location, double tujuanLat, double tujuanLong) {
         if (location==null)
             return 0.0;
         double earthRadius = 3958.75;

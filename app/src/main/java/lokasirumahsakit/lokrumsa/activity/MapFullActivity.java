@@ -27,8 +27,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import lokasirumahsakit.lokrumsa.datapojo.DataRumahSakit;
-import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.DataRumahSakit;
+import lokasirumahsakit.lokrumsa.LocalDB;
 import lokasirumahsakit.lokrumsa.R;
 
 public class MapFullActivity extends AppCompatActivity {

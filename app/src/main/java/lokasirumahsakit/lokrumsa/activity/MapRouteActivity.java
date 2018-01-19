@@ -48,7 +48,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.LocalDB;
 import lokasirumahsakit.lokrumsa.R;
 
 public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {

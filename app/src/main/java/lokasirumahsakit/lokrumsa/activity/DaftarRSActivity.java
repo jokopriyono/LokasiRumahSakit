@@ -8,9 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.LocalDB;
 import lokasirumahsakit.lokrumsa.R;
-import lokasirumahsakit.lokrumsa.adapter.RumahSakitAdapter;
+import lokasirumahsakit.lokrumsa.RumahSakitAdapter;
 
 public class DaftarRSActivity extends AppCompatActivity {
 
