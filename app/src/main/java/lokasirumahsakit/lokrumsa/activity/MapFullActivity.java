@@ -1,4 +1,4 @@
-package lokasirumahsakit.lokrumsa;
+package lokasirumahsakit.lokrumsa.activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -26,6 +26,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import lokasirumahsakit.lokrumsa.datapojo.DataRumahSakit;
+import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.R;
 
 public class MapFullActivity extends AppCompatActivity {
     private GoogleMap googleMap;

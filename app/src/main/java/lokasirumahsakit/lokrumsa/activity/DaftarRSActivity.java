@@ -1,4 +1,4 @@
-package lokasirumahsakit.lokrumsa;
+package lokasirumahsakit.lokrumsa.activity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+
+import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.R;
+import lokasirumahsakit.lokrumsa.adapter.RumahSakitAdapter;
 
 public class DaftarRSActivity extends AppCompatActivity {
 

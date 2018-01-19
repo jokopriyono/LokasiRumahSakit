@@ -1,4 +1,4 @@
-package lokasirumahsakit.lokrumsa;
+package lokasirumahsakit.lokrumsa.activity;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -29,7 +29,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.apache.http.HttpEntity;
@@ -48,6 +47,9 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import lokasirumahsakit.lokrumsa.database.LocalDB;
+import lokasirumahsakit.lokrumsa.R;
 
 public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
     private MapView mMapView;

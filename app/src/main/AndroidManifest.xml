@@ -20,16 +20,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/googleApiKey" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapFullActivity" />
-        <activity android:name=".MapRouteActivity" />
-        <activity android:name=".DaftarRSActivity"></activity>
+        <activity android:name=".activity.MapFullActivity" />
+        <activity android:name=".activity.MapRouteActivity" />
+        <activity android:name=".activity.DaftarRSActivity" />
+        <activity android:name=".activity.TentangActivity"></activity>
     </application>
 
 </manifest>
