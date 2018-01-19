@@ -6,17 +6,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,13 +23,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class MapFullActivity extends AppCompatActivity {
-    private MapView mMapView;
     private GoogleMap googleMap;
     private List<DataRumahSakit> dataRumahSakit;
 
@@ -44,7 +37,7 @@ public class MapFullActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map_full);
 
         //inisialisasi peta di dalam fragment
-        mMapView = findViewById(R.id.map);
+        MapView mMapView = findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume(); // needed to get the map to display immediately
         mMapView.getMapAsync(new OnMapReadyCallback() {

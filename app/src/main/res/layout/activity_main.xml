@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/txt_daftar_rs"
             android:text="@string/daftar_rumah_sakit"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -45,6 +46,7 @@
             android:layout_width="2dp"
             android:layout_height="match_parent"/>
         <TextView
+            android:id="@+id/txt_tentang_app"
             android:text="@string/tentang_aplikasi"
             android:textAlignment="center"
             android:textColor="@android:color/black"

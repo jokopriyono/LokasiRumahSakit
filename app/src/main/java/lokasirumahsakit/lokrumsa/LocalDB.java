@@ -307,6 +307,8 @@ public class LocalDB extends SQLiteOpenHelper {
     }
 
     double hitungJarakRS(Location location, double tujuanLat, double tujuanLong) {
+        if (location==null)
+            return 0.0;
         double earthRadius = 3958.75;
         double dLat = Math.toRadians(tujuanLat-location.getLatitude());
         double dLng = Math.toRadians(tujuanLong-location.getLongitude());
