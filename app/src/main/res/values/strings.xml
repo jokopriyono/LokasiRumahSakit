@@ -11,4 +11,5 @@
     <string name="jarak">Jarak</string>
     <string name="alamat">Alamat</string>
     <string name="jumlah_rumah_sakit">Jumlah Rumah Sakit :</string>
+    <string name="tentang">Aplikasi ini merupakan</string>
 </resources>

@@ -31,5 +31,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         TextView txtTentangApp = findViewById(R.id.txt_tentang_app);
+        txtTentangApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TentangActivity.class));
+            }
+        });
     }
 }
