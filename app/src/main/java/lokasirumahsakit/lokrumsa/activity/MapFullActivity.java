@@ -75,15 +75,17 @@ public class MapFullActivity extends AppCompatActivity {
                         }
                     });
 
-                    if (dataRumahSakit.size() <= 5){
+                    if (dataRumahSakit.size() < 5){
                         for (int a = 0; a< dataRumahSakit.size(); a++){
                             LatLng dest = new LatLng(dataRumahSakit.get(a).getLatitude(),
                                     dataRumahSakit.get(a).getLongitude());
-                            MarkerOptions markdest = new MarkerOptions().position(dest).title(dataRumahSakit.get(a).getNama());
-                            googleMap.addMarker(markdest);
+                            MarkerOptions markdest = new MarkerOptions().position(dest)
+                                    .title(dataRumahSakit.get(a).getNama())
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+                            googleMap.addMarker(markdest).setTag(dataRumahSakit.get(a).getNo());
                         }
                     } else {
-                        for (int a=0; a<=5; a++){
+                        for (int a=0; a<5; a++){
                             LatLng dest = new LatLng(dataRumahSakit.get(a).getLatitude(),
                                     dataRumahSakit.get(a).getLongitude());
                             MarkerOptions markdest = new MarkerOptions().position(dest)
@@ -94,6 +96,8 @@ public class MapFullActivity extends AppCompatActivity {
                     }
                 }
                 cursor.close();
+                db.close();
+                localDB.close();
 
                 // camera zoom letak marker nya
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
