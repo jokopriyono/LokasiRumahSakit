@@ -16,6 +16,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,8 +58,8 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
     private GoogleMap googleMap;
     private String no = "";
     private Toolbar toolbar;
-    private TextView txtJarak;
-    private TextView txtAlamat;
+    protected TextView txtJarak, txtAlamat, txtFasilitas1, txtFasilitas2, txtFasilitas3, txtFasilitas4, txtFasilitas5, txtFasilitas6, txtFasilitas7, txtFasilitas8, txtFasilitas9, txtFasilitas10, txtFasilitas11, txtFasilitas12, txtFasilitas13;
+    private LinearLayout linearData, linearDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +73,35 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
         toolbar = findViewById(R.id.toolbar_map);
         txtJarak = findViewById(R.id.txt_jarak);
         txtAlamat = findViewById(R.id.txt_alamat);
+        txtFasilitas1 = findViewById(R.id.txt_fasilitas_1);
+        txtFasilitas2 = findViewById(R.id.txt_fasilitas_2);
+        txtFasilitas3 = findViewById(R.id.txt_fasilitas_3);
+        txtFasilitas4 = findViewById(R.id.txt_fasilitas_4);
+        txtFasilitas5 = findViewById(R.id.txt_fasilitas_5);
+        txtFasilitas6 = findViewById(R.id.txt_fasilitas_6);
+        txtFasilitas7 = findViewById(R.id.txt_fasilitas_7);
+        txtFasilitas8 = findViewById(R.id.txt_fasilitas_8);
+        txtFasilitas9 = findViewById(R.id.txt_fasilitas_9);
+        txtFasilitas10 = findViewById(R.id.txt_fasilitas_10);
+        txtFasilitas11 = findViewById(R.id.txt_fasilitas_11);
+        txtFasilitas12 = findViewById(R.id.txt_fasilitas_12);
+        txtFasilitas13 = findViewById(R.id.txt_fasilitas_13);
+        linearData = findViewById(R.id.linear_data);
+        linearDetail= findViewById(R.id.linear_detail);
+        linearData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (linearDetail.getVisibility()==View.VISIBLE)
+                    linearDetail.setVisibility(View.GONE);
+                else
+                    linearDetail.setVisibility(View.VISIBLE);
+            }
+        });
 
         //inisialisasi peta di dalam fragment
         mMapView = findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
-        mMapView.onResume(); // needed to get the map to display immediately
+        mMapView.onResume(); 
         try {
             MapsInitializer.initialize(getApplicationContext());
         } catch (Exception e) {
@@ -86,15 +112,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
 
-                // my location button on map
                 if (ActivityCompat.checkSelfPermission(MapRouteActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapRouteActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -112,6 +130,33 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
                     if (cursor.getCount()!=0) {
                         toolbar.setTitle(localDB.getStringValue(cursor, "nama"));
                         txtAlamat.setText(localDB.getStringValue(cursor, "alamat"));
+                        String text = localDB.getStringValue(cursor, "fasilitas1");
+                        txtFasilitas1.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas2");
+                        txtFasilitas2.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas3");
+                        txtFasilitas3.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas4");
+                        txtFasilitas4.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas5");
+                        txtFasilitas5.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas6");
+                        txtFasilitas6.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas7");
+                        txtFasilitas7.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas8");
+                        txtFasilitas8.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas9");
+                        txtFasilitas9.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas10");
+                        txtFasilitas10.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas11");
+                        txtFasilitas11.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas12");
+                        txtFasilitas12.setText(text);
+                        text = localDB.getStringValue(cursor, "fasilitas13");
+                        txtFasilitas13.setText(text);
+
                         String jarak = localDB.hitungJarakRS(location, localDB.getDoubleValue(cursor, "latitude"), localDB.getDoubleValue(cursor, "longitude")) + " Km";
                         txtJarak.setText(jarak);
 

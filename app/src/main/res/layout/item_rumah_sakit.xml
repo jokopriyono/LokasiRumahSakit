@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_rumah_sakit"
     app:cardCornerRadius="4dp"
     app:cardElevation="2dp"
     android:layout_margin="3dp"
@@ -9,6 +10,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:padding="16dp"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -34,6 +36,149 @@
                 android:text="@string/minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <LinearLayout
+                android:id="@+id/linear_detail"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/fasilitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_1"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_2"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_3"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_4"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_5"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_6"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_7"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_8"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_9"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_10"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_11"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_12"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@string/minus"
+                        android:id="@+id/txt_fasilitas_13"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

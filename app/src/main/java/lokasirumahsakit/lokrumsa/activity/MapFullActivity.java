@@ -9,9 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,6 +34,7 @@ import lokasirumahsakit.lokrumsa.LocalDB;
 import lokasirumahsakit.lokrumsa.R;
 
 public class MapFullActivity extends AppCompatActivity {
+    private static final int REQUEST_GPS = 100;
     private GoogleMap googleMap;
     private List<DataRumahSakit> dataRumahSakit;
 
@@ -51,13 +54,9 @@ public class MapFullActivity extends AppCompatActivity {
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 Criteria criteria = new Criteria();
                 if (ActivityCompat.checkSelfPermission(MapFullActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapFullActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
+                    ActivityCompat.requestPermissions(MapFullActivity.this,
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                            REQUEST_GPS);
                     return;
                 }
                 Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
@@ -121,5 +120,19 @@ public class MapFullActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_GPS: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    recreate();
+                } else {
+                    Toast.makeText(this, "Maaf anda harus memberikan izin akses GPS", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }
     }
 }
