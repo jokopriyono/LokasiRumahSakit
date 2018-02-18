@@ -364,8 +364,8 @@ public class LocalDB extends SQLiteOpenHelper {
         sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
                 "'RS An-Nisa Tangerang', " +
                 "'Jalan Gatot Subroto No. 96, Uwung Jaya, Cibodas, Uwung Jaya, Cibodas, Kota Tangerang, Banten 15132', " +
-                "'-6.1789466', " +
-                "'106.6061836', " +
+                "'-6.1873827', " +
+                "'106.6044415', " +
                 "'klinik rawat jalan', " +
                 "'IGD 24 jam', " +
                 "'ICU 24 ', " +
@@ -830,14 +830,26 @@ public class LocalDB extends SQLiteOpenHelper {
     }
 
     public List<DataRumahSakit> getAllRumahSakit(Cursor cursor, Location location){
+        cursor.moveToFirst();
         List<DataRumahSakit> dataRumahSakits = new ArrayList<>();
         for (int counter = 0; counter < cursor.getCount(); counter++) {
+            Double jarakMeter;
+            if (location!=null) {
+                Location lokasiRS = new Location("lokasiRS" + counter);
+                lokasiRS.setLatitude(getDoubleValue(cursor, "latitude"));
+                lokasiRS.setLongitude(getDoubleValue(cursor, "longitude"));
+                Float jarakFloat= location.distanceTo(lokasiRS);
+                jarakMeter = jarakFloat.doubleValue();
+            } else {
+                jarakMeter = null;
+            }
+
             DataRumahSakit data = new DataRumahSakit(getStringValue(cursor, "no"),
                     getStringValue(cursor, "nama"),
                     getStringValue(cursor, "alamat"),
                     getDoubleValue(cursor, "latitude"),
                     getDoubleValue(cursor, "longitude"),
-                    hitungJarakRS(location, getDoubleValue(cursor, "latitude"), getDoubleValue(cursor, "longitude")),
+                    jarakMeter,
                     getStringValue(cursor, "fasilitas1"),
                     getStringValue(cursor, "fasilitas2"),
                     getStringValue(cursor, "fasilitas3"),
@@ -855,18 +867,5 @@ public class LocalDB extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
         return dataRumahSakits;
-    }
-
-    public double hitungJarakRS(Location location, double tujuanLat, double tujuanLong) {
-        if (location==null)
-            return 0.0;
-        double earthRadius = 3958.75;
-        double dLat = Math.toRadians(tujuanLat-location.getLatitude());
-        double dLng = Math.toRadians(tujuanLong-location.getLongitude());
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(Math.toRadians(location.getLatitude())) * Math.cos(Math.toRadians(tujuanLat)) * Math.sin(dLng/2) * Math.sin(dLng/2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double dist = earthRadius * c;
-        int meterConversion = 1609;
-        return Double.valueOf(dist * meterConversion).floatValue();
     }
 }

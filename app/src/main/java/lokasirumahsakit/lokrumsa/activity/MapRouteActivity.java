@@ -59,7 +59,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
     private String no = "";
     private Toolbar toolbar;
     protected TextView txtJarak, txtAlamat, txtFasilitas1, txtFasilitas2, txtFasilitas3, txtFasilitas4, txtFasilitas5, txtFasilitas6, txtFasilitas7, txtFasilitas8, txtFasilitas9, txtFasilitas10, txtFasilitas11, txtFasilitas12, txtFasilitas13;
-    private LinearLayout linearData, linearDetail;
+    private LinearLayout linearDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,13 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
         if (bundle!=null)
             no = bundle.getString("no");
 
-        toolbar = findViewById(R.id.toolbar_map);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         txtJarak = findViewById(R.id.txt_jarak);
         txtAlamat = findViewById(R.id.txt_alamat);
         txtFasilitas1 = findViewById(R.id.txt_fasilitas_1);
@@ -86,7 +92,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
         txtFasilitas11 = findViewById(R.id.txt_fasilitas_11);
         txtFasilitas12 = findViewById(R.id.txt_fasilitas_12);
         txtFasilitas13 = findViewById(R.id.txt_fasilitas_13);
-        linearData = findViewById(R.id.linear_data);
+        LinearLayout linearData = findViewById(R.id.linear_data);
         linearDetail= findViewById(R.id.linear_detail);
         linearData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,13 +163,17 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
                         text = localDB.getStringValue(cursor, "fasilitas13");
                         txtFasilitas13.setText(text);
 
-                        String jarak = localDB.hitungJarakRS(location, localDB.getDoubleValue(cursor, "latitude"), localDB.getDoubleValue(cursor, "longitude")) + " Km";
-                        txtJarak.setText(jarak);
+                        Location lokasiRS = new Location("lokasiRS");
+                        lokasiRS.setLatitude(localDB.getDoubleValue(cursor, "latitude"));
+                        lokasiRS.setLongitude(localDB.getDoubleValue(cursor, "longitude"));
+                        float jarakMeter = location.distanceTo(lokasiRS);
+                        int pembulatanMeter = (int) jarakMeter;
+                        text = pembulatanMeter + " Meter";
+                        txtJarak.setText(text);
 
                         new connectAsyncTask(makeURL(location.getLatitude(), location.getLongitude(),
                                 localDB.getDoubleValue(cursor, "latitude"),
                                 localDB.getDoubleValue(cursor, "longitude"))).execute();
-
                         LatLng dest = new LatLng(localDB.getDoubleValue(cursor, "latitude"),
                                 localDB.getDoubleValue(cursor, "longitude"));
 
@@ -193,7 +203,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
 
     private List<LatLng> decodePoly(String encoded) {
 
-        List<LatLng> poly = new ArrayList<LatLng>();
+        List<LatLng> poly = new ArrayList<>();
         int index = 0, len = encoded.length();
         int lat = 0, lng = 0;
 
@@ -253,7 +263,7 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
            */
         }
         catch (JSONException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -304,12 +314,11 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
     public class JSONParser {
 
         InputStream is = null;
-        JSONObject jObj = null;
         String json = "";
         // constructor
-        public JSONParser() {
+        JSONParser() {
         }
-        public String getJSONFromUrl(String url) {
+        String getJSONFromUrl(String url) {
 
             // Making HTTP request
             try {
@@ -332,9 +341,9 @@ public class MapRouteActivity extends AppCompatActivity implements GoogleMap.OnM
                 BufferedReader reader = new BufferedReader(new InputStreamReader(
                         is, "iso-8859-1"), 8);
                 StringBuilder sb = new StringBuilder();
-                String line = null;
+                String line;
                 while ((line = reader.readLine()) != null) {
-                    sb.append(line + "\n");
+                    sb = sb.append(line).append("\n");
                 }
 
                 json = sb.toString();
