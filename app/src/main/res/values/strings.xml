@@ -15,5 +15,6 @@
     Dengan menggunakan aplikasi ini pengguna dapat mengetahui daftar rumah sakit di kota Tangerang. Informasi yang didapat adalah lokasi dan alamat.\n
     Selain mendapat informasi pengguna juga bisa mengetahui jarak user ke sebuah rumah sakit. Pengguna juga bisa melakukan tracking menggunakan aplikasi bawaan Android yaitu Google Map.</string>
     <string name="fasilitas">Fasilitas</string>
+    <string name="need_permission"><![CDATA[Kami membutuhkan izin tersebut untuk beberapa fitur   Anda dapat mengubahnya di [Setting] > [Permission]]]></string>
 
 </resources>

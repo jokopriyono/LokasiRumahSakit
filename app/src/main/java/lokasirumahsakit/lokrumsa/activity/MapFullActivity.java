@@ -26,7 +26,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -35,7 +38,7 @@ import lokasirumahsakit.lokrumsa.DataRumahSakit;
 import lokasirumahsakit.lokrumsa.LocalDB;
 import lokasirumahsakit.lokrumsa.R;
 
-public class MapFullActivity extends AppCompatActivity {
+public class MapFullActivity extends AppCompatActivity implements PermissionListener {
     private static final int REQUEST_GPS = 100;
     private GoogleMap googleMap;
     private List<DataRumahSakit> dataRumahSakit;
@@ -44,6 +47,14 @@ public class MapFullActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_full);
+
+        new TedPermission(this)
+                .setPermissionListener(this)
+                .setDeniedMessage(R.string.need_permission)
+                .setPermissions(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION)
+                .check();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -143,5 +154,16 @@ public class MapFullActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public void onPermissionGranted() {
+        Toast.makeText(this, "Kami membutuhkan izin tersebut", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
     }
 }
