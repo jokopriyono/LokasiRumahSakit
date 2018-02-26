@@ -158,12 +158,11 @@ public class MapFullActivity extends AppCompatActivity implements PermissionList
 
     @Override
     public void onPermissionGranted() {
-        Toast.makeText(this, "Kami membutuhkan izin tersebut", Toast.LENGTH_SHORT).show();
-        finish();
     }
 
     @Override
     public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-
+        Toast.makeText(this, "Kami membutuhkan izin tersebut", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
