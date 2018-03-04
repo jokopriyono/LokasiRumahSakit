@@ -43,7 +43,7 @@ public class DaftarRSActivity extends AppCompatActivity {
         SQLiteDatabase db = localDB.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM rumah_sakit", null);
         if (cursor.getCount()!=0){
-            RumahSakitAdapter adapter = new RumahSakitAdapter(localDB.getAllRumahSakit(cursor, null));
+            RumahSakitAdapter adapter = new RumahSakitAdapter(localDB.getAllRumahSakit(cursor, null), this);
             recyclerView.setAdapter(adapter);
 
             txtJumlahRS.setText(String.valueOf(cursor.getCount()));

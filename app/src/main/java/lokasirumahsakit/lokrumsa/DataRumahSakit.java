@@ -20,8 +20,9 @@ public class DataRumahSakit {
     private String fasilitas11;
     private String fasilitas12;
     private String fasilitas13;
+    private String urlRS;
 
-    public DataRumahSakit(String no, String nama, String alamat, Double latitude, Double longitude, Double jarak, String fasilitas1, String fasilitas2, String fasilitas3, String fasilitas4, String fasilitas5, String fasilitas6, String fasilitas7, String fasilitas8, String fasilitas9, String fasilitas10, String fasilitas11, String fasilitas12, String fasilitas13) {
+    DataRumahSakit(String no, String nama, String alamat, Double latitude, Double longitude, Double jarak, String fasilitas1, String fasilitas2, String fasilitas3, String fasilitas4, String fasilitas5, String fasilitas6, String fasilitas7, String fasilitas8, String fasilitas9, String fasilitas10, String fasilitas11, String fasilitas12, String fasilitas13, String urlRS) {
         this.no = no;
         this.nama = nama;
         this.alamat = alamat;
@@ -41,6 +42,7 @@ public class DataRumahSakit {
         this.fasilitas11 = fasilitas11;
         this.fasilitas12 = fasilitas12;
         this.fasilitas13 = fasilitas13;
+        this.urlRS = urlRS;
     }
 
     public String getNo() {
@@ -117,5 +119,9 @@ public class DataRumahSakit {
 
     public String getFasilitas13() {
         return fasilitas13;
+    }
+
+    public String getUrlRS() {
+        return urlRS;
     }
 }

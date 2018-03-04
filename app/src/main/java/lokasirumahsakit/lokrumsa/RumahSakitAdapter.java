@@ -1,20 +1,26 @@
 package lokasirumahsakit.lokrumsa;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class RumahSakitAdapter extends RecyclerView.Adapter<RumahSakitAdapter.ViewHolder>{
     private List<DataRumahSakit> dataRumahSakit;
+    private Context context;
 
-    public RumahSakitAdapter(List<DataRumahSakit> dataRumahSakit) {
+    public RumahSakitAdapter(List<DataRumahSakit> dataRumahSakit, Context context) {
         this.dataRumahSakit = dataRumahSakit;
+        this.context = context;
     }
 
     @Override
@@ -26,6 +32,10 @@ public class RumahSakitAdapter extends RecyclerView.Adapter<RumahSakitAdapter.Vi
 
     @Override
     public void onBindViewHolder(final RumahSakitAdapter.ViewHolder holder, int position) {
+        if (dataRumahSakit.get(position).getUrlRS()!=null)
+            Picasso.with(context).load(dataRumahSakit.get(position).getUrlRS())
+                    .placeholder(R.drawable.blank).into(holder.imgRS);
+
         holder.txtNama.setText(dataRumahSakit.get(position).getNama());
         holder.txtAlamat.setText(dataRumahSakit.get(position).getAlamat());
         holder.cardRumahSakit.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +85,7 @@ public class RumahSakitAdapter extends RecyclerView.Adapter<RumahSakitAdapter.Vi
         TextView txtNama, txtAlamat, txtFasilitas1, txtFasilitas2, txtFasilitas3, txtFasilitas4, txtFasilitas5, txtFasilitas6, txtFasilitas7, txtFasilitas8, txtFasilitas9, txtFasilitas10, txtFasilitas11, txtFasilitas12, txtFasilitas13;
         CardView cardRumahSakit;
         LinearLayout linearDetail;
+        ImageView imgRS;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -96,6 +107,7 @@ public class RumahSakitAdapter extends RecyclerView.Adapter<RumahSakitAdapter.Vi
             txtFasilitas13 = itemView.findViewById(R.id.txt_fasilitas_13);
             cardRumahSakit = itemView.findViewById(R.id.card_rumah_sakit);
             linearDetail = itemView.findViewById(R.id.linear_detail);
+            imgRS = itemView.findViewById(R.id.img_rumah_sakit);
         }
     }
 }

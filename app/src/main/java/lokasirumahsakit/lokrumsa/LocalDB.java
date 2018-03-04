@@ -15,7 +15,6 @@ public class LocalDB extends SQLiteOpenHelper {
 
     public LocalDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -38,10 +37,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "fasilitas10 text null, " +
                 "fasilitas11 text null, " +
                 "fasilitas12 text null, " +
-                "fasilitas13 text null" +
+                "fasilitas13 text null, " +
+                "url_gambar text null" +
                 ");";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah sakit awal bros Tangerang', " +
                 "'Jl.M.H. Thamrin No 3, Panunggangan utara, pinang, kota Tangerang, Banten 15117', " +
                 "'-6.2148254', " +
@@ -58,10 +58,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://1.bp.blogspot.com/-Ttzm_LQP-iI/V5l0HajrwoI/AAAAAAAAAKA/VYdRbwijbUE0xmaXMqA38xv5h2g2QzTnwCLcB/s1600/Untitled.png'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah sakit Anak dan Bunda Sari Asih', " +
                 "'Jl. Imam Bonjol No.38, Sukajadi, Karawaci, Kota Tangerang, Banten 15113', " +
                 "'-6.1792753', " +
@@ -78,10 +79,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "'bedah'," +
                 "'urologi'," +
                 "'ortopedi'," +
-                "'poliklinik gigi'" +
+                "'poliklinik gigi'," +
+                "'http://pjpksintcarolus.com/wp-content/uploads/2015/11/RS-Sari-Asih-Karawaci.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Umum Sari Asih Sangiang ', " +
                 "'Jl. Moh. Toha KM. 3.5, Periuk Jaya, Periuk, Kota Tangerang, Banten 15131', " +
                 "'-6.1700969', " +
@@ -98,10 +100,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://www.sariasih.com/media/library/4-rs-sangiang.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS. Usada Insani', " +
                 "'Jl. KH. Hasyim Ashari No. 24, Cipondoh, Buaran Indah, Kec. Tangerang, Kota Tangerang, Banten 15117', " +
                 "'-6.1841928', " +
@@ -118,10 +121,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://static.konsula.com/images/practice/0001001000/0001000036/rumah-sakit-usada-insani1.800x600.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Islam Asshobirin', " +
                 "'Jl. Raya Serpong No.9, RT.11/RW.8, Pd. Jagung, Serpong Utara, Kota Tangerang Selatan, Banten 15326', " +
                 "'-6.259128', " +
@@ -138,10 +142,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://3.bp.blogspot.com/-j2vU1PzhiLg/UK96G-l64yI/AAAAAAAAAxo/oBuCN9GEHK0/s1600/Rumah+Sakit+Islam+Tangerang+ASshobirin.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Mulya', " +
                 "'Jalan Kyai Haji Hasyim Ashari No.18, Sudimara Pinang, Kota Tangerang, Banten 15145', " +
                 "'-6.2225838', " +
@@ -158,10 +163,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://lh3.googleusercontent.com/-jQUPiXeia_I/VEniKe1crQI/AAAAAAAAABQ/OOqB2jWcSkY/w530-h398-n/DSC_0590.JPG'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rs Mayapada', " +
                 "'Jl. Honoris Raya Kav. 6, Klp. Indah, Kec. Tangerang, Kota Tangerang, Banten 15117', " +
                 "'-6.2049897', " +
@@ -178,10 +184,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://mayapadahospital.com/assets/images/hospital/mayapada-tangerang.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSUD Kabupaten Tangerang', " +
                 "'Jalan Ahmad Yani No.9, Suka Asih, Kecamatan Tangerang, Sukaasih, Kecamatan Tangerang, Sukaasih, Kec. Tangerang, Kota Tangerang, Banten 15111', " +
                 "'-6.169893', " +
@@ -198,10 +205,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://harianjayapos.com/foto_berita/27RSUD-Kabupaten-Tangerang.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS Melati', " +
                 "'Jalan Raya Merdeka No.92, Pabuaran, Karawaci, Gerendeng, Karawaci, Kota Tangerang, Banten 15114', " +
                 "'-6.1776312', " +
@@ -218,10 +226,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://www.aluontop.co.id/web/images/mallpekantoran/PC180157.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSUD Kota Tangerang', " +
                 "'Jl. Gg. kuncung No.2, Klp. Indah, Kec. Tangerang, Kota Tangerang, Banten 15117', " +
                 "'-6.2023152', " +
@@ -238,10 +247,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://asset.kompas.com/data/photo/2014/03/28/180223720140328-150302780x390.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RB. Harapan Ibu', " +
                 "'Jl. Mangga Raya No. 3, Cibodasari, Cibodas, Kota Tangerang, Banten 15138', " +
                 "'-6.2098885', " +
@@ -258,10 +268,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://igx.4sqi.net/img/general/600x600/ZqloJke6AbpObbh5UQq-OdH-jDNvbO4UOTQxrxSEtig.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Daan Mogot', " +
                 "'Jalan Daan Mogot No.59, Sukarasa, Kecamatan Tangerang, Kota Tangerang, Banten 15111', " +
                 "'-6.172131', " +
@@ -278,10 +289,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://s3-ap-southeast-1.amazonaws.com/static.guesehat.com/directories_thumb/41395_Rumah_Sakit_Rumkit_TK._IV_Daan_Mogot.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rs Qadr', " +
                 "'Jl. Qadr III, Klp. Dua, Cibodas, Kota Tangerang, Banten 15810', " +
                 "'-6.2265917', " +
@@ -298,10 +310,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "'Spesialis Psikiatri (Physiciatry)'," +
                 "'Spesialis Rehabilitasi Medik'," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://rsqadr.co.id/wp-content/uploads/2015/03/profil2.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Ibu & Anak Bunda Sejati', " +
                 "'Jalan Prabu Siliwangi No.11, Jatiuwung, Keroncong, Kota Tangerang, Banten 15134', " +
                 "'-6.1899012', " +
@@ -318,11 +331,12 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://s3-ap-southeast-1.amazonaws.com/static.guesehat.com/directories_thumb/11609_Rumah_Sakit_Ibu_dan_Anak_Bunda_Sejati.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
-                "'Rumah Sakit Medika BSD', " +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
+                    "'Rumah Sakit Medika BSD', " +
                 "'JL. Letnan Soetopo, No. 7, BSD Serpong, Kavling Komplek 3A, Lengkong Wetan, Tangerang, Kota Tangerang Selatan, Banten 15310', " +
                 "'-6.2842202', " +
                 "'106.6675813', " +
@@ -338,10 +352,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://www.garnesia.com/images/vendor/v4921.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS.Ariya Medika', " +
                 "'Jalan Industri No.A/1-4, Jatake, Jatiuwung, Jatake, Jatiuwung, Kota Tangerang, Banten 15136', " +
                 "'-6.2011041', " +
@@ -358,10 +373,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://cdn.kriminologi.id/news_picture_thumb/59e0585563258-1507874901-0afd7d657f177e8a072a53b2b626c394.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS An-Nisa Tangerang', " +
                 "'Jalan Gatot Subroto No. 96, Uwung Jaya, Cibodas, Uwung Jaya, Cibodas, Kota Tangerang, Banten 15132', " +
                 "'-6.1873827', " +
@@ -378,10 +394,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://medx.emedis.id/wp-content/uploads/2017/11/rs_annisa_tangerang.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS. Hermina Tangerang', " +
                 "'Jalan Ks. Tubun No.10, Pasar Baru, Karawaci, Kota Tangerang, Banten 15112', " +
                 "'-6.169458', " +
@@ -398,10 +415,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://static.konsula.com/images/practice/0001001000/0001000378/rumah-sakit-hermina-serpong.800x600.png'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSIA Keluarga Ibu', " +
                 "'Jl. Raya Benua Indah No.58, Pabuaran Tumpeng, Tangerang, Pabuaran Tumpeng, Karawaci, Kota Tangerang, Banten 15112', " +
                 "'-6.1700182', " +
@@ -418,10 +436,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://lh3.googleusercontent.com/AGdFCfBLQTw8DDfvRa8dxql1Gg84ReiOR7YzL-rPxVoiU33ddSG7sHUa_7RK6xDkNF4ILupMhPdeKA=w1024-h768-rw-no'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'OMNI Hospitals Alam Sutera', " +
                 "'Jalan Alam Sutera Boulevard Kav. 25, Pakulonan, Serpong Utara, Pakulonan, Serpong Utara, Kota Tangerang Selatan, Banten 15325', " +
                 "'-6.2449115', " +
@@ -438,10 +457,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://tangselmedia.com/wp-content/uploads/2016/07/omni-hospital-alam-sutera.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSIA Mutiara Bunda', " +
                 "'Jl. Cipto Mangunkusumo Gg. H. Mencong No. 3, Ciledug, Sudimara Tim., Tangerang, Kota Tangerang, Banten 15151', " +
                 "'-6.2301327', " +
@@ -458,10 +478,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://1.bp.blogspot.com/-UC30o83DLJI/V4jVSFJFMFI/AAAAAAAAHIk/n3ifPJbVGc0sYNzOU9nKBDkhVpUwlxOLgCLcB/s1600/RSIA%2BMutiara%2BBunda.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS Sari Asih Ciledug', " +
                 "'Jl. HOS Cokroaminoto No. 38, Ciledug, Sudimara Timur, Ciledug, Sudimara Tim., Ciledug, Kota Tangerang, Banten 15151', " +
                 "'-6.229975', " +
@@ -478,10 +499,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://cms.usp.co.id/image/project/171.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSIA Cinta Kasih', " +
                 "'Jalan Ciputat Baru Raya No.10, Sawah Lama, Ciputat, Sawah Lama, Ciputat, Kota Tangerang Selatan, Banten 15413', " +
                 "'-6.2990936', " +
@@ -498,10 +520,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://www.kasih-group.com/images/slideshow/562-IMG_3478%20-%20Copy.JPG'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS Premier Bintaro', " +
                 "'Jl. M.H. Thamrin No. 1, Sektor 7, Bintaro Jaya, Pondok Jaya, Pondok Aren, Tangerang, Banten 15224', " +
                 "'-6.2761129', " +
@@ -518,10 +541,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://res.cloudinary.com/dk0z4ums3/image/upload/w_656,h_431/v1499765924/hospital_image/RS-Bintaro-Hospital-%20resize.jpg.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'St. Carolus Hospital Summarecon Serpong', " +
                 "'Jl. Gading Golf Boulevard Kav. 08, Gading Serpong, Cihuni, Pagedangan, Tangerang, Banten 15332', " +
                 "'-6.2471031', " +
@@ -538,10 +562,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://explore.summareconserpong.com/wp-content/uploads/2014/12/St.-Carolusjpg-2-823x420.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Ichsan Medical Centre Bintaro', " +
                 "'Jalan Raya Jombang No.56, Bintaro, Jombang, Ciputat, Jombang, Ciputat, Kota Tangerang Selatan, Banten 15414', " +
                 "'-6.2919521', " +
@@ -558,10 +583,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://www.infobintaro.com/wp-content/uploads/rs_imc_bintaro_info_bintaro.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Sari Asih Ciputat', " +
                 "'Jl. Sasak Tinggi No. 3, Otista Ciputat, Ciputat, Kota Tangerang Selatan, Banten 15411', " +
                 "'-6.3253192', " +
@@ -578,10 +604,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "'bedah'," +
                 "'urologi'," +
                 "'ortopedi'," +
-                "'poliklinik gigi'" +
+                "'poliklinik gigi'," +
+                "'https://www.sariasih.com/media/library/2-rs-ciputat.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Siloam', " +
                 "'Jl. Gn. Himalaya Lippo Karawaci, Panunggangan Bar., Cibodas, Kota Tangerang, Banten 15138', " +
                 "'-6.2201426', " +
@@ -598,10 +625,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://hellosehat.com/wp-content/uploads/2016/06/hospital-1496805440-435x300.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSU Bhakti Asih', " +
                 "'Jalan Raden Saleh No. 10, Karang Tengah, Ciledug, Karang Tengah, Kota Tangerang, Banten 15157', " +
                 "'-6.2212654', " +
@@ -618,10 +646,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://1.bp.blogspot.com/_mBdxq93WoyA/TS6ppVbl00I/AAAAAAAAACw/rnmWQQOO3gc/s1600/gambar+gedung+rsu+ba.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS. Tiara Tangerang', " +
                 "'Jl. Beringin Raya No.5, Nusa Jaya, Karawaci, Kota Tangerang, Banten 15116', " +
                 "'-6.1954908', " +
@@ -638,10 +667,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://static.konsula.com/images/practice/0001001000/0001000163/rumah-sakit-tiara-bekasi.800x600.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS Umum Permata Ibu', " +
                 "'Jalan KH. Mas Mansyur No.2, Kunciran Indah, Pinang, Kota Tangerang, Banten 15144', " +
                 "'-6.2281659', " +
@@ -658,10 +688,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://static.konsula.com/images/practice/0001001000/0001000679/rumah-sakit-grha-permata-ibu.800x600.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rs Dinda', " +
                 "'Jalan Gatot Subroto KM. 5, Jatiuwung, Cibodas, Jatiuwung, Cibodas, Tangerang, Banten 15137', " +
                 "'-6.1919989', " +
@@ -678,10 +709,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://lh3.googleusercontent.com/OFsooDGsMimLeDdpDCCxIKBT6IA3uJIWYs-ATrJjSB534cVRXHP_PzOjNCM9qeJnJhnT31w-doGyrA=w3264-h2448-rw-no'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RSIA Assyifa', " +
                 "'Jalan Paus Raya No. 1, Cimone, Karawaci, Karawaci Baru, Karawaci, Kota Tangerang, Banten 15116', " +
                 "'-6.1991967', " +
@@ -698,10 +730,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://s3-ap-southeast-1.amazonaws.com/static.guesehat.com/directories_thumb/100932_Rumah_Sakit_Ibu_dan_Anak_Assyifa.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'RS Ibu Dan Anak AQIDAH', " +
                 "'Jalan Raden Fatah No.40, Parung Serab, Ciledug, Parung Serab, Ciledug, Kota Tangerang, Banten 15153', " +
                 "'-6.2492883', " +
@@ -718,10 +751,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://1.bp.blogspot.com/-Z-5qZwf-PJw/VPQdJuau2EI/AAAAAAAAAEs/-EGsqoAeE8U/s1600/P1161097.JPG'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Karang Tengah Medika', " +
                 "'Karang Tengah, Kota Tangerang, Banten 15157', " +
                 "'-6.2101111', " +
@@ -738,10 +772,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://klikalamat.com/wp-content/uploads/2016/09/RS.-Karang-Tengah-Medika.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Sitanala Tangerang', " +
                 "'Jalan Dr. Sitanala No. 99, Karang Sari, Neglasari, Karang Sari, Neglasari, Kota Tangerang, Banten 15121', " +
                 "'-6.1621749', " +
@@ -758,10 +793,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'http://4.bp.blogspot.com/_FUyYVO0jY_0/Sa9BGP-CiPI/AAAAAAAAACo/_6yHk7WN23E/w1200-h630-p-k-no-nu/slide0001_image002.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Islam Sari Asih Ar-Rahmah', " +
                 "'Jalan Ks. Tubun No. 44, Koang Jaya, Karawaci, Koang Jaya, Kec. Tangerang, Banten, 15112', " +
                 "'-6.1640123', " +
@@ -778,10 +814,11 @@ public class LocalDB extends SQLiteOpenHelper {
                 "'bedah'," +
                 "'urologi'," +
                 "'ortopedi'," +
-                "'poliklinik gigi'" +
+                "'poliklinik gigi'," +
+                "'https://s3-ap-southeast-1.amazonaws.com/static.guesehat.com/directories_thumb/168790_Rumah_Sakit_Islam_Sari_Asih_Ar-Rahmah.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
-        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13) VALUES (" +
+        sql = "INSERT INTO rumah_sakit (nama, alamat, latitude, longitude, fasilitas1, fasilitas2, fasilitas3, fasilitas4, fasilitas5, fasilitas6, fasilitas7, fasilitas8, fasilitas9, fasilitas10, fasilitas11, fasilitas12, fasilitas13, url_gambar) VALUES (" +
                 "'Rumah Sakit Syarif Hidayatullah Ciputat', " +
                 "'Jl Ir. H. Juanda No.95, Pisangan, Ciputat Timur, Kota Tangerang Selatan, Banten 15419', " +
                 "'-6.3079082', " +
@@ -798,7 +835,8 @@ public class LocalDB extends SQLiteOpenHelper {
                 "null," +
                 "null," +
                 "null," +
-                "null" +
+                "null," +
+                "'https://www.garnesia.com/images/vendor/v5028.jpg'" +
                 ")";
         sqLiteDatabase.execSQL(sql);
 
@@ -862,7 +900,8 @@ public class LocalDB extends SQLiteOpenHelper {
                     getStringValue(cursor, "fasilitas10"),
                     getStringValue(cursor, "fasilitas11"),
                     getStringValue(cursor, "fasilitas12"),
-                    getStringValue(cursor, "fasilitas13"));
+                    getStringValue(cursor, "fasilitas13"),
+                    getStringValue(cursor, "url_gambar"));
             dataRumahSakits.add(data);
             cursor.moveToNext();
         }
